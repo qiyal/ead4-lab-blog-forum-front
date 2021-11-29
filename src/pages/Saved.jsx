@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { Button, Row, Col, Card } from 'react-bootstrap'
+import api from '../api'
 
 const Saved = () => {
   const [posts, setPosts] = React.useState([
@@ -8,6 +9,13 @@ const Saved = () => {
     { id: 2, title: 'Title 2', author: 'Author 2', text: 'Textxtxtxttxtxtxtx txtxtt txtxttx txttxt ttx' },
     { id: 3, title: 'Title 3', author: 'Author 3', text: 'Textxtxtxttxtxtxtx txtxtt txtxttx txttxt ttx' }
   ])
+
+  React.useEffect(() => {
+    api.get('')
+      .then(res => setPosts(res.data))
+      .catch(err => alert(`Error on loading posts: ${err}`))
+  }, [])
+
   return (
     <>
       <h2 className="mb-2">Saved</h2>
