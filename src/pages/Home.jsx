@@ -11,7 +11,7 @@ const Home = () => {
   ])
 
   React.useEffect(() => {
-    api.get('')
+    api.get('/post-api/post/all')
       .then(res => setPosts(res.data))
       .catch(err => alert(`Error on loading posts: ${err}`))
   }, [])
