@@ -3,14 +3,18 @@ import { Link } from 'react-router-dom'
 import { Button, Row, Col, Card } from 'react-bootstrap'
 
 const Saved = () => {
-  const [posts, setPosts] = React.useState([1, 2, 3])
+  const [posts, setPosts] = React.useState([
+    { id: 1, title: 'Title 1', author: 'Author 1', text: 'Textxtxtxttxtxtxtx txtxtt txtxttx txttxt ttx' },
+    { id: 2, title: 'Title 2', author: 'Author 2', text: 'Textxtxtxttxtxtxtx txtxtt txtxttx txttxt ttx' },
+    { id: 3, title: 'Title 3', author: 'Author 3', text: 'Textxtxtxttxtxtxtx txtxtt txtxttx txttxt ttx' }
+  ])
   return (
     <>
       <h2 className="mb-2">Saved</h2>
 
       <Row>
-        {posts.map(() => (
-          <Col className="mb-3" md={6}>
+        {posts.map(item => (
+          <Col className="mb-3" md={6} key={item.id}>
             <Link to={`/posts/${'postId'}`}>
               <Card>
                 <Card.Body>
