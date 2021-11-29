@@ -1,9 +1,11 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { Button, Col, Row, Card } from 'react-bootstrap'
+import { Row, Col, Card } from 'react-bootstrap'
 import api from '../api'
 
-const Home = () => {
+const ForumPage = () => {
+  const [name, setName] = React.useState('')
+  const [title, setTitle] = React.useState('')
   const [posts, setPosts] = React.useState([
     { title: 'Title 1', author: 'Author 1', text: 'Textxtxtxttxtxtxtx txtxtt txtxttx txttxt ttx' },
     { title: 'Title 2', author: 'Author 2', text: 'Textxtxtxttxtxtxtx txtxtt txtxttx txttxt ttx' },
@@ -12,17 +14,21 @@ const Home = () => {
 
   React.useEffect(() => {
     api.get('')
+      .then(res => {
+        setName(res.data.name)
+        setTitle(res.data.title)
+      })
+      .catch(err => alert(`Error on loading forum page: ${err}`))
+
+    api.get('')
       .then(res => setPosts(res.data))
       .catch(err => alert(`Error on loading posts: ${err}`))
   }, [])
 
   return (
     <>
-      <h2 className="mb-2">Posts</h2>
-
-      <Link className="mb-4" to="/add-post">
-        <Button>Write post</Button>
-      </Link>
+      <h2>Forum: { name }</h2>
+      <h4 className="text-muted mb-4">{ title }</h4>
 
       <Row>
         {posts.map(item => (
@@ -49,4 +55,4 @@ const Home = () => {
   )
 }
 
-export default Home
+export default ForumPage

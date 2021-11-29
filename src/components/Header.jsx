@@ -18,9 +18,9 @@ const Header = () => {
                   Username
                 </Dropdown.Toggle>
                 <Dropdown.Menu>
-                  <Dropdown.Item>Profile</Dropdown.Item>
+                  {/* <Dropdown.Item>Profile</Dropdown.Item>
                   <Dropdown.Item>Settings</Dropdown.Item>
-                  <Dropdown.Divider />
+                  <Dropdown.Divider /> */}
                   <Dropdown.Item>Log out</Dropdown.Item>
                 </Dropdown.Menu>
               </Dropdown>
