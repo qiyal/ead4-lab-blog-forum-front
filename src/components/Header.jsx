@@ -3,7 +3,7 @@ import { Navbar, Container, Dropdown, Nav } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 
 const Header = () => {
-  const [isAuth, setIsAuth] = React.useState(false)
+  const [isLoggedIn, setIsLoggedIn] = React.useState(false)
 
   return (
     <header className="mb-4">
@@ -12,7 +12,7 @@ const Header = () => {
           <Navbar.Brand href="/">Blog Forum</Navbar.Brand>
 
           <Nav>
-            {isAuth ? (
+            {isLoggedIn ? (
               <Dropdown>
                 <Dropdown.Toggle variant="dark">
                   Username

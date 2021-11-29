@@ -1,11 +1,12 @@
 import React from 'react'
 import { Form, Button, Row, Col } from 'react-bootstrap'
-import { Link } from 'react-router-dom'
+import { Link, Navigate } from 'react-router-dom'
 import api from '../api'
 
 const Login = () => {
   const [username, setUsername] = React.useState('')
   const [password, setPassword] = React.useState('')
+  const [isLoggedIn, setIsLoggedIn] = React.useState(false)
 
   const handleUsernameChange = e => {
     setUsername(e.target.value)
@@ -18,17 +19,22 @@ const Login = () => {
   const logIn = e => {
     e.preventDefault()
 
-    api({
-      url: '',
-      method: 'post',
-      data: { username, password }
-    }).then(res => {
-
-    }).catch(err => alert(`Wrong username or password. Error: ${err}`))
+    if (username && password) {
+      api({
+        url: '',
+        method: 'post',
+        data: { username, password }
+      }).then(res => {
+        setIsLoggedIn(true)
+      }).catch(err => alert(`Wrong username or password. Error: ${err}`))
+    } else {
+      alert('Enter required fields!')
+    }
   }
 
   return (
     <>
+      { isLoggedIn ? <Navigate to="/" /> : null }
       <h3 className="text-center mb-4">Log in</h3>
 
       <Row>

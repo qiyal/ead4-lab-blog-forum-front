@@ -4,7 +4,7 @@ import { Row, Col } from 'react-bootstrap'
 
 import Sidebar from '../components/Sidebar'
 
-const index = () => {
+const Main = () => {
   return (
     <>
       <Row>
@@ -19,4 +19,4 @@ const index = () => {
   )
 }
 
-export default index
+export default Main

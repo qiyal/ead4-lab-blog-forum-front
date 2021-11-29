@@ -6,9 +6,9 @@ import api from '../api'
 
 const ForumsPage = () => {
   const [forums, setForums] = React.useState([
-    { name: 'Forum 1', title: 'Title 1' },
-    { name: 'Forum 2', title: 'Title 2' },
-    { name: 'Forum 3', title: 'Title 3' }
+    { id: 1, name: 'Forum 1', title: 'Title 1' },
+    { id: 2, name: 'Forum 2', title: 'Title 2' },
+    { id: 3, name: 'Forum 3', title: 'Title 3' }
   ])
 
   React.useEffect(() => {
@@ -24,7 +24,7 @@ const ForumsPage = () => {
 
       <ListGroup variant="flush">
         {forums.map(item => (
-          <Link to="/forums/:id">
+          <Link to="/forums/:id" key={item.id}>
             <ListGroup.Item className="d-flex justify-content-between align-items-start">
               <div className="ms-2 me-auto">
                 <div className="fw-bold">

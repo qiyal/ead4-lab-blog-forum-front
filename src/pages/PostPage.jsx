@@ -2,14 +2,27 @@ import React from 'react'
 import { Button, Card } from 'react-bootstrap'
 
 import PostComments from '../components/PostComments'
+import api from '../api'
 
 const PostPage = () => {
   const [isSaved, setIsSaved] = React.useState(false)
+
+  const handleSave = e => {
+    api({
+      url: '',
+      method: 'post',
+      data: { postId: 0, userId: 0 }
+    }).then(res => {
+      setIsSaved(state => !state)
+    }).catch(err => alert(`Error on saving post: ${err}`))
+  }
+
   return (
     <>
       <h2>Post title</h2>
       <Button
         variant={isSaved ? 'warning' : 'success'}
+        onClick={handleSave}
         className="mb-3"
       >
         {isSaved ? 'Remove' : 'Save'}
