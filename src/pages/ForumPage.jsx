@@ -4,12 +4,12 @@ import { Row, Col, Card } from 'react-bootstrap'
 import api from '../api'
 
 const ForumPage = () => {
-  const [name, setName] = React.useState('')
-  const [title, setTitle] = React.useState('')
+  const [name, setName] = React.useState('Qwerty')
+  const [title, setTitle] = React.useState('title')
   const [posts, setPosts] = React.useState([
-    { id: 1, title: 'Title 1', author: 'Author 1', text: 'Textxtxtxttxtxtxtx txtxtt txtxttx txttxt ttx' },
-    { id: 2, title: 'Title 2', author: 'Author 2', text: 'Textxtxtxttxtxtxtx txtxtt txtxttx txttxt ttx' },
-    { id: 3, title: 'Title 3', author: 'Author 3', text: 'Textxtxtxttxtxtxtx txtxtt txtxttx txttxt ttx' }
+    { id: 1, title: 'Title 1', author: 'Author 1', text: 'Textxtxtxt txtxtxtx txtxtt txtxttx txttxt ttx' },
+    { id: 2, title: 'Title 2', author: 'Author 2', text: 'Textxtxtxt txtxtxtx txtxtt txtxttx txttxt ttx' },
+    { id: 3, title: 'Title 3', author: 'Author 3', text: 'Textxtxtxt txtxtxtx txtxtt txtxttx txttxt ttx' }
   ])
 
   React.useEffect(() => {

@@ -10,7 +10,7 @@ import Saved from './pages/Saved';
 import Login from './pages/Login';
 import Register from './pages/Register';
 import PostPage from './pages/PostPage';
-import ForumPage from './pages/PostPage';
+import ForumPage from './pages/ForumPage';
 import ForumsListPage from './pages/ForumsListPage';
 import AddPostPage from './pages/AddPostPage';
 import './index.css';
