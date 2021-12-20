@@ -28,6 +28,7 @@ import {MyPostsPageComponent} from './component/my-posts-page/my-posts-page.comp
 import {MatSelectModule} from '@angular/material/select';
 import {MatOptionModule} from '@angular/material/core';
 import {FriendsPageComponent} from './component/friends-page/friends-page.component';
+import { EditSavedComponent } from './component/dialog/edit-saved/edit-saved.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,8 @@ import {FriendsPageComponent} from './component/friends-page/friends-page.compon
     PostDetailsPageComponent,
     BookmarksPageComponent,
     MyPostsPageComponent,
-    FriendsPageComponent
+    FriendsPageComponent,
+    EditSavedComponent
   ],
   imports: [
     BrowserModule,

@@ -4,6 +4,7 @@ import {User} from '../../object/user';
 import {AuthService} from '../../service/auth.service';
 import {PostService} from '../../service/post.service';
 import {Router} from '@angular/router';
+import {SavedService} from '../../service/saved.service';
 
 @Component({
   selector: 'app-profile-page',
@@ -19,17 +20,26 @@ export class ProfilePageComponent implements OnInit {
   posts: any[] = [];
   showTab: any = 0;
 
+  saved = {
+    title: '',
+    ownerId: -1,
+    postsIds: []
+  };
+  saveds: any[] = [];
+
   constructor(
     private userService: UserService,
     private authService: AuthService,
     private postService: PostService,
-    private router: Router
+    private router: Router,
+    private savedService: SavedService
   ) {
   }
 
   ngOnInit(): void {
     this.setAuthUser();
     this.getPosts();
+    this.getMySaved();
     if (!this.authService.isAuth) {
       this.router.navigate(['/main']);
     }
@@ -80,6 +90,20 @@ export class ProfilePageComponent implements OnInit {
           }
         });
       }
+    });
+  }
+
+  createSaved(): void {
+    this.saved.ownerId = Number(this.authService.getAuthUserId());
+    this.savedService.createNew(this.saved).subscribe(res => {
+      this.getMySaved();
+      this.saved.title = '';
+    });
+  }
+
+  getMySaved(): void {
+    this.savedService.getSavedsByOwnerId(this.authService.getAuthUserId()).subscribe(res => {
+      this.saveds = res;
     });
   }
 }

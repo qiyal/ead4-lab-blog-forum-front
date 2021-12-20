@@ -89,5 +89,41 @@
         </div>
       </div>
     </mat-tab>
+
+    <mat-tab label="My Saved">
+
+      <div class="create-tab">
+        <div class="mat-page-box">
+
+          <h3>New Saved</h3>
+
+          <div>
+            <mat-form-field appearance="fill">
+              <mat-label>Title</mat-label>
+              <input matInput [(ngModel)]="saved.title">
+            </mat-form-field>
+          </div>
+
+          <button (click)="createSaved()" mat-flat-button color="warn" [disabled]="!saved.title">Submit</button>
+        </div>
+      </div>
+
+      <div class="saved-list">
+        <div class="saved-box">
+
+          <div class="saved-card" *ngFor="let saved of saveds">
+            <div class="saved-card-title">
+              {{saved.title}}
+              <div *ngIf="saved.postsIds.length != 0">{{saved.postsIds.length}}</div>
+            </div>
+
+            <div class="saved-card-content">
+              <button mat-flat-button color="warn">EDIT</button>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </mat-tab>
   </mat-tab-group>
 </div>

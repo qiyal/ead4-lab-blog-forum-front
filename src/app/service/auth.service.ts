@@ -9,7 +9,7 @@ export class AuthService {
   api = '/api/user-api/auth';
   isAuth = false;
   authUsername: string | null = '';
-  userId: number | null = -1;
+  userId: any;
 
   constructor(
     private http: HttpClient,
@@ -24,6 +24,10 @@ export class AuthService {
 
       if (typeof localStorage.getItem('username') === 'string') {
         this.authUsername = localStorage.getItem('username');
+      }
+
+      if (typeof localStorage.getItem('userId') === 'string') {
+        this.userId = localStorage.getItem('userId');
       }
     }
   }
@@ -62,13 +66,24 @@ export class AuthService {
 
   signOut(): void {
     localStorage.removeItem('Bearer');
+    localStorage.removeItem('userId');
     this.isAuth = false;
     this.authUsername = '';
+    this.userId = null;
     this.router.navigate(['/']);
   }
 
   getAuthUsername(): string | null {
     console.log(this.authUsername);
     return this.authUsername;
+  }
+
+  setUserId(authorizationUserId: any): void {
+    localStorage.setItem('userId', authorizationUserId);
+    this.userId = authorizationUserId;
+  }
+
+  getAuthUserId(): number | null {
+    return this.userId;
   }
 }

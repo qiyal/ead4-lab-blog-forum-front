@@ -36,6 +36,7 @@ export class SignInPageComponent implements OnInit {
     this.authService.login(this.signInForm.getRawValue()).subscribe(res => {
       if (res.headers.get('authorization')) {
         this.authService.setToken(res.headers.get('authorization'), this.signInForm.getRawValue().username);
+        this.authService.setUserId(res.headers.get('AuthorizationUserId'));
         this.router.navigate(['/profile']);
       }
     });

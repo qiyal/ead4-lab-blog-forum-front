@@ -70,3 +70,44 @@
   box-sizing: border-box;
   padding: 25px;
 }
+
+.saved-list {
+  width: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .saved-box {
+    width: 80%;
+    //background: #ff4081;
+
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+
+    .saved-card {
+      width: 150px;
+      margin: 10px;
+      background: #5a6fea;
+      border-radius: 15px 15px 7px 7px;
+      overflow: hidden;
+
+      .saved-card-title {
+        text-align: center;
+        background: #8c97e8;
+        padding: 15px 0;
+        //font-weight: bold;
+        color: #fff;
+        font-size: 20px;
+      }
+
+      .saved-card-content {
+        padding: 5px;
+        text-align: center;
+      }
+      //height: 100px;
+    }
+  }
+}
