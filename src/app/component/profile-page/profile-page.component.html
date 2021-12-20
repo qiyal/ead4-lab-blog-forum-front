@@ -118,7 +118,8 @@
             </div>
 
             <div class="saved-card-content">
-              <button mat-flat-button color="warn">EDIT</button>
+              <button style="margin-bottom: 10px" mat-flat-button color="primary" (click)="openEditSaved(saved.id)">EDIT</button>
+              <button mat-flat-button color="warn" (click)="deleteSaved(saved.id)">DELETE</button>
             </div>
           </div>
 

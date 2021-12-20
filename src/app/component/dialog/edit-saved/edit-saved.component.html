@@ -1,1 +1,13 @@
-<p>edit-saved works!</p>
+<div class="mat-page-box">
+
+  <h3>New Saved</h3>
+
+  <div>
+    <mat-form-field appearance="fill">
+      <mat-label>Title</mat-label>
+      <input matInput [(ngModel)]="title">
+    </mat-form-field>
+  </div>
+
+  <button (click)="save()" mat-flat-button color="warn" [disabled]="!title">Save</button>
+</div>

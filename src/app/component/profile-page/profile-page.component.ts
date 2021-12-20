@@ -5,6 +5,8 @@ import {AuthService} from '../../service/auth.service';
 import {PostService} from '../../service/post.service';
 import {Router} from '@angular/router';
 import {SavedService} from '../../service/saved.service';
+import {MatDialog} from '@angular/material/dialog';
+import {EditSavedComponent} from '../dialog/edit-saved/edit-saved.component';
 
 @Component({
   selector: 'app-profile-page',
@@ -32,7 +34,8 @@ export class ProfilePageComponent implements OnInit {
     private authService: AuthService,
     private postService: PostService,
     private router: Router,
-    private savedService: SavedService
+    private savedService: SavedService,
+    public dialog: MatDialog
   ) {
   }
 
@@ -104,6 +107,26 @@ export class ProfilePageComponent implements OnInit {
   getMySaved(): void {
     this.savedService.getSavedsByOwnerId(this.authService.getAuthUserId()).subscribe(res => {
       this.saveds = res;
+    });
+  }
+
+  openEditSaved(savedId_: any): void {
+    const dialogRef = this.dialog.open(EditSavedComponent,  {
+      data: {
+        savedId: savedId_
+      }
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      if (result && result.action) {
+        this.getMySaved();
+      }
+    });
+  }
+
+  deleteSaved(savedId: any): void {
+    this.savedService.deleteById(savedId).subscribe(res => {
+      this.getMySaved();
     });
   }
 }

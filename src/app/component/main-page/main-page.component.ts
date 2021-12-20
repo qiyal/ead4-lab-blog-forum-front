@@ -40,18 +40,18 @@ export class MainPageComponent implements OnInit {
     }
   }
 
-  addToBookmark(post: any): void {
+  addToSaved(post: any): void {
     if (this.auth.isAuth) {
-      const bookmark = {
-        username: this.auth.getAuthUsername(),
+      const savedPostDTO = {
+        savedId: this.auth.getAuthUsername(),
         bookmark: {
           postId: post.id
         }
       };
 
-      this.bookmarkService.add(bookmark).subscribe(res => {
-        console.log('add');
-      });
+      // this.bookmarkService.add(bookmark).subscribe(res => {
+      //   console.log('add');
+      // });
     }
   }
 
