@@ -1,0 +1,72 @@
+.flex-profile-info {
+  display: flex;
+  width: 1000px;
+  margin: 0 auto;
+  //justify-content: space-between;
+}
+
+.profile-img {
+  width: 300px;
+  height: 300px;
+  margin-right: 100px;
+
+  img {
+    width: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+  }
+}
+
+.profile-infos {
+  div {
+    margin-bottom: 20px;
+    font-weight: 600;
+
+    span {
+      font-weight: normal;
+    }
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}
+
+.roles {
+
+  span {
+    margin-right: 10px;
+  }
+}
+
+.create-tab {
+  width: 100%;
+  padding: 20px;
+  box-sizing: border-box;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.mat-page-box {
+  padding: 0;
+  width: 100%;
+  text-align: center;
+}
+
+.example-card:hover {
+  background-color: rgba(0, 0, 0, 0.2);
+
+  .title-hover {
+    color: #ff4081;
+  }
+}
+
+.no-results {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  padding: 25px;
+}

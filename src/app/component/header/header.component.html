@@ -1,0 +1,22 @@
+<mat-toolbar color="primary">
+  <div class="l-m-r">
+    <div class="left-part">
+      <a mat-button routerLink="/main">All Posts</a>
+      <a mat-button routerLink="/my-posts">My Posts</a>
+      <a mat-button routerLink="/profile">My Profile</a>
+      <a mat-button routerLink="/friends">Friends</a>
+      <a mat-button routerLink="/bookmarks">Bookmarks</a>
+    </div>
+
+    <div class="middle-part">
+      <img class="web-logo-style" src="assets/img/website-logo.svg" alt="website-logo">
+    </div>
+
+    <div class="right-part">
+      <a mat-flat-button routerLink="/signIn" *ngIf="!isAuth()" style="margin-right: 20px">Sign in</a>
+      <a mat-flat-button routerLink="/signUp" *ngIf="!isAuth()" color="accent">Sign up</a>
+      <a mat-flat-button (click)="onSignOut()" *ngIf="isAuth()">Sign out</a>
+    </div>
+  </div>
+</mat-toolbar>
+

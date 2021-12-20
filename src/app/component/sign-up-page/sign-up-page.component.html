@@ -1,0 +1,72 @@
+<div class="wrapper">
+  <div class="flex-center-center">
+
+    <h1 class="text-center">First time here?</h1>
+    <h4 class="text-center" style="color: #818c99">Sign up for IITUtweet<br>After signing up, you'll get access to all
+      of IITUtweet's features</h4>
+
+    <div class="form-body">
+      <form [formGroup]="userForm" (ngSubmit)="onClick()">
+
+        <mat-form-field class="input-f">
+          <mat-label>Username</mat-label>
+          <input type="text" matInput formControlName="username" placeholder="Username">
+
+          <mat-error *ngIf="username.hasError('required')">
+            Username is <strong>required</strong>
+          </mat-error>
+        </mat-form-field>
+
+        <br>
+
+        <mat-form-field class="input-f">
+          <mat-label>Password</mat-label>
+          <input type="password" matInput formControlName="password" placeholder="Password">
+          <mat-error *ngIf="password.hasError('required')">
+            Password is <strong>required</strong>
+          </mat-error>
+        </mat-form-field>
+
+        <br>
+
+        <mat-form-field class="input-f">
+          <mat-label>Name</mat-label>
+          <input type="text" matInput formControlName="name" placeholder="Name">
+          <mat-error *ngIf="name.hasError('required')">
+            Name is <strong>required</strong>
+          </mat-error>
+        </mat-form-field>
+
+        <br>
+
+        <mat-form-field class="input-f">
+          <mat-label>Surname</mat-label>
+          <input type="text" matInput formControlName="surname" placeholder="Surname">
+          <mat-error *ngIf="surname.hasError('required')">
+            Surname is <strong>required</strong>
+          </mat-error>
+        </mat-form-field>
+
+<!--        <br>-->
+
+<!--        <mat-form-field appearance="fill">-->
+<!--          <mat-label>Gender</mat-label>-->
+<!--          <mat-select formControlName="gender">-->
+<!--            <mat-option [value]="'Male'">-->
+<!--              Male-->
+<!--            </mat-option>-->
+<!--            <mat-option [value]="'Female'">-->
+<!--              Female-->
+<!--            </mat-option>-->
+<!--          </mat-select>-->
+<!--        </mat-form-field>-->
+
+        <br>
+
+        <button class="submit-btn" type="submit" mat-raised-button color="primary" [disabled]="userForm.invalid">Sign Up</button>
+
+      </form>
+    </div>
+
+  </div>
+</div>

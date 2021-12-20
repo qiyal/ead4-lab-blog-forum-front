@@ -1,0 +1,40 @@
+.example-spacer {
+  flex: 1 1 auto;
+}
+
+.l-m-r {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.left-part {
+  width: 500px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.right-part {
+  width: 500px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.middle-part {
+  width: 300px;
+  height: 50px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.web-logo-style {
+  height: 100%;
+}

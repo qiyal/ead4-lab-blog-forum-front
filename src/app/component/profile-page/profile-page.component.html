@@ -1,0 +1,93 @@
+<div class="wrapper">
+
+  <h1 class="text-center">My Profile</h1>
+
+  <div class="profile-page-div">
+
+    <div class="flex-profile-info">
+
+      <div class="profile-img">
+        <img [src]="user.imgUrl ? user.imgUrl : urlPhoto">
+      </div>
+
+      <div class="profile-infos">
+        <div>
+          Name: <span>{{user.name}}</span>
+        </div>
+
+        <div>
+          Surname: <span>{{user.surname}}</span>
+        </div>
+
+        <div>
+          Username: <span>{{user.username}}</span>
+        </div>
+
+        <div class="roles">
+          Role: <span *ngFor="let role of user.roles; let isLast = last">{{role.name}} {{!isLast ? ',' : ''}}</span>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+  <mat-tab-group [(selectedIndex)]="showTab">
+    <mat-tab label="My Posts">
+      <div class="flex-div">
+
+        <mat-card class="example-card" *ngFor="let post of posts">
+          <mat-card-header [routerLink]="['/post-detail', post.id]" style="cursor: pointer">
+            <mat-card-title class="title-hover">Title: {{post.title}}</mat-card-title>
+          </mat-card-header>
+
+          <mat-card-content>
+            <p>{{post.date | date:'dd-MM-yyyy (hh:mm a)'}}</p>
+            <p>{{post.text}}</p>
+          </mat-card-content>
+        </mat-card>
+
+      </div>
+
+      <div class="no-results" *ngIf="posts.length === 0">
+        <div>
+          <div style="text-align: center">
+            <svg width="48" height="48" xmlns="http://www.w3.org/2000/svg">
+              <path d="M24 48a24 24 0 100-48 24 24 0 000 48z" fill="#FC3"></path>
+              <path
+                d="M27.86 36.86a1.29 1.29 0 010 2.57h-7.72a1.29 1.29 0 010-2.57h7.72zm-1.29-12c.86-.86 1.72 1.71 6 1.71 3.43 0 6.43-1.71 6.86-.86.43.86-2.57 4.29-6.86 4.29-5.14 0-6.86-4.29-6-5.14zm-5.14 0c.86.85-.86 5.14-6 5.14-4.29 0-7.29-3.43-6.86-4.29.43-.85 3.43.86 6.86.86 4.28 0 5.14-2.57 6-1.71zm9.43-10.29c.85-.86 2.57 2.14 6 3.43s4.28 1.29 4.28 2.57c0 .86-.85 1.72-5.14 0-4.29-1.71-6-5.14-5.14-6zm-13.72 0c.86.86-.85 4.29-5.14 6-4.29 1.72-5.14.86-5.14 0 0-1.28.85-1.28 4.28-2.57 3.43-1.29 5.15-4.29 6-3.43z"
+                fill="#805446"></path>
+            </svg>
+          </div>
+
+          <div class="no-results__text">No results found</div>
+        </div>
+      </div>
+    </mat-tab>
+
+    <mat-tab label="Create post">
+      <div class="create-tab">
+        <div class="mat-page-box">
+
+          <h3>New Post</h3>
+
+          <div>
+            <mat-form-field appearance="fill">
+              <mat-label>Title</mat-label>
+              <input matInput [(ngModel)]="titlePost">
+            </mat-form-field>
+          </div>
+
+          <div>
+            <mat-form-field appearance="fill">
+              <mat-label>Text</mat-label>
+              <input matInput [(ngModel)]="textPost">
+            </mat-form-field>
+          </div>
+
+          <button (click)="createPost()" mat-flat-button color="warn">Submit</button>
+        </div>
+      </div>
+    </mat-tab>
+  </mat-tab-group>
+</div>

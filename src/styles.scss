@@ -1,0 +1,44 @@
+/* You can add global styles to this file, and also import other style files */
+
+html, body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.wrapper {
+  width: 1440px;
+  margin: 0 auto;
+  background: #fff;
+  box-sizing: border-box;
+  padding: 50px 50px;
+}
+
+.text-center {
+  text-align: center;
+}
+
+body {
+  background: #eee;
+}
+
+.link {
+  cursor: pointer;
+}
+
+.flex-center-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  min-height: 550px;
+}
+
+.submit-btn {
+  display: block;
+  margin-top: 20px !important;
+  width: 100%;
+}

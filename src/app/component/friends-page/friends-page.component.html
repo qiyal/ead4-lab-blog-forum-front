@@ -1,0 +1,67 @@
+<div class="wrapper">
+
+  <div class="friends-page-div">
+
+    <h1 class="text-center">Friends</h1>
+
+    <div class="flex-friends">
+
+      <div class="flex-friends-child">
+
+        <div style="text-align: center; padding: 20px; font-size: 20px">
+          My Friends
+        </div>
+
+        <div class="no-results" *ngIf="myFriends.length === 0">
+          <div>
+            <div style="text-align: center">
+              <svg width="48" height="48" xmlns="http://www.w3.org/2000/svg">
+                <path d="M24 48a24 24 0 100-48 24 24 0 000 48z" fill="#FC3"></path>
+                <path d="M27.86 36.86a1.29 1.29 0 010 2.57h-7.72a1.29 1.29 0 010-2.57h7.72zm-1.29-12c.86-.86 1.72 1.71 6 1.71 3.43 0 6.43-1.71 6.86-.86.43.86-2.57 4.29-6.86 4.29-5.14 0-6.86-4.29-6-5.14zm-5.14 0c.86.85-.86 5.14-6 5.14-4.29 0-7.29-3.43-6.86-4.29.43-.85 3.43.86 6.86.86 4.28 0 5.14-2.57 6-1.71zm9.43-10.29c.85-.86 2.57 2.14 6 3.43s4.28 1.29 4.28 2.57c0 .86-.85 1.72-5.14 0-4.29-1.71-6-5.14-5.14-6zm-13.72 0c.86.86-.85 4.29-5.14 6-4.29 1.72-5.14.86-5.14 0 0-1.28.85-1.28 4.28-2.57 3.43-1.29 5.15-4.29 6-3.43z" fill="#805446"></path>
+              </svg>
+            </div>
+
+            <div class="no-results__text">No results found</div>
+          </div>
+        </div>
+
+        <div class="flex-div">
+          <mat-card class="example-card" *ngFor="let myFriend of myFriends">
+            <mat-card-header>
+              <div mat-card-avatar class="header-image" [style.background-image]="'url(../../..' + (myFriend.userF1.username === getAuthUsername() ? myFriend.userF2.imgUrl : myFriend.userF1.imgUrl) + ')'"></div>
+              <mat-card-title>{{myFriend.userF1.username === getAuthUsername() ? myFriend.userF2.username : myFriend.userF1.username}}</mat-card-title>
+              <mat-card-subtitle>Full Name: {{myFriend.userF1.username === getAuthUsername() ? myFriend.userF2.name : myFriend.userF1.name}} {{myFriend.userF1.username === getAuthUsername() ? myFriend.userF2.surname : myFriend.userF1.surname}}</mat-card-subtitle>
+            </mat-card-header>
+          </mat-card>
+        </div>
+      </div>
+
+      <div class="flex-friends-child">
+        <div style="text-align: center; padding: 20px; font-size: 20px">
+          Search<br><span style="color: #818c99; font-size: 15px">Find friends</span>
+        </div>
+        <div style="display: flex; align-content: center; justify-content: center">
+          <mat-form-field appearance="fill">
+            <mat-label>Username</mat-label>
+            <input matInput [(ngModel)]="username" (ngModelChange)="findUser()">
+          </mat-form-field>
+        </div>
+        <div class="flex-div">
+          <mat-card class="example-card" *ngFor="let user of users">
+            <mat-card-header>
+              <div *ngIf="user.imgUrl" mat-card-avatar class="header-image" [style.background-image]="'url(../../..' + user.imgUrl + ')'"></div>
+              <mat-card-title>{{user.username}}</mat-card-title>
+              <mat-card-subtitle>Full Name: {{user.name}} {{user.surname}}</mat-card-subtitle>
+            </mat-card-header>
+
+            <mat-card-actions>
+              <button mat-flat-button color="primary" (click)="addFriend(user.id)">ADD TO FRIENDS</button>
+            </mat-card-actions>
+          </mat-card>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+</div>

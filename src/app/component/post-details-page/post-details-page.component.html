@@ -1,0 +1,66 @@
+<div class="wrapper">
+
+  <h1 class="text-center">Post Detail</h1>
+
+  <mat-card class="example-card">
+    <mat-card-header>
+      <mat-card-title>{{post.title}}</mat-card-title>
+      <mat-card-subtitle>Author: {{post.user.username}}</mat-card-subtitle>
+    </mat-card-header>
+
+    <mat-card-content>
+      <p>{{post.text}}</p>
+    </mat-card-content>
+
+    <mat-card-actions>
+      <button mat-flat-button color="accent" style="margin-right: 20px" (click)="likeCount()">LIKE
+        +{{post.likeCount}}</button>
+      <button mat-flat-button color="primary" (click)="dislikeCount()">DISLIKE -{{post.dislike}}</button>
+    </mat-card-actions>
+  </mat-card>
+
+  <div class="comments-box" style="margin-top: 100px">
+
+    <h2 class="text-center">Comments</h2>
+
+    <div class="comments" *ngFor="let com of comments">
+
+      <div class="user-info">
+        <div class="user-name">
+          {{com.user.username}}
+        </div>
+        <div class="user-img">
+          <img [src]="com.user.imgUrl">
+        </div>
+      </div>
+
+      <div class="comment-text">
+        {{com.text}}
+      </div>
+
+      <button *ngIf="com.user.username === getUsername()" class="del-btn" mat-mini-fab
+              aria-label="Example icon button with a home icon" (click)="deleteComment(com.id)">
+        <mat-icon>delete</mat-icon>
+      </button>
+    </div>
+
+  </div>
+
+
+  <div class="comment-form">
+    <button (click)="showCreateFormComment()" *ngIf="!showCommentForm" style="display: block; margin: auto"
+            mat-flat-button color="warn">Add Comment
+    </button>
+
+
+    <form [formGroup]="formComment" *ngIf="showCommentForm" (ngSubmit)="saveComment()">
+      <mat-form-field class="example-full-width">
+        <mat-label>Text:</mat-label>
+        <textarea matInput placeholder="Text..." formControlName="text"></textarea>
+      </mat-form-field>
+      <button type="submit" mat-flat-button color="primary">Save</button>
+      <button type="submit" (click)="cancel()" *ngIf="showCommentForm" mat-flat-button color="warn">Cancel</button>
+    </form>
+  </div>
+
+</div>

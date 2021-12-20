@@ -1,0 +1,45 @@
+<div class="wrapper">
+
+  <div class="main-page-div">
+
+    <h1 class="text-center">Bookmarks</h1>
+
+    <h3 *ngIf="!isLogin()" style="text-align: center">
+      <div class="no-results">
+        <div>
+          <div style="text-align: center">
+            <svg width="48" height="48" xmlns="http://www.w3.org/2000/svg">
+              <path d="M24 48a24 24 0 100-48 24 24 0 000 48z" fill="#FC3"></path>
+              <path
+                d="M27.86 36.86a1.29 1.29 0 010 2.57h-7.72a1.29 1.29 0 010-2.57h7.72zm-1.29-12c.86-.86 1.72 1.71 6 1.71 3.43 0 6.43-1.71 6.86-.86.43.86-2.57 4.29-6.86 4.29-5.14 0-6.86-4.29-6-5.14zm-5.14 0c.86.85-.86 5.14-6 5.14-4.29 0-7.29-3.43-6.86-4.29.43-.85 3.43.86 6.86.86 4.28 0 5.14-2.57 6-1.71zm9.43-10.29c.85-.86 2.57 2.14 6 3.43s4.28 1.29 4.28 2.57c0 .86-.85 1.72-5.14 0-4.29-1.71-6-5.14-5.14-6zm-13.72 0c.86.86-.85 4.29-5.14 6-4.29 1.72-5.14.86-5.14 0 0-1.28.85-1.28 4.28-2.57 3.43-1.29 5.15-4.29 6-3.43z"
+                fill="#805446"></path>
+            </svg>
+          </div>
+        </div>
+      </div>
+      You are not registered and/or not logged on :(
+    </h3>
+
+    <div class="flex-div">
+
+      <mat-card class="example-card" *ngFor="let bookmark of allBookmarks">
+        <mat-card-header [routerLink]="['/post-detail', bookmark.post.id]">
+          <mat-card-title class="title-hover">{{bookmark.post.title}}</mat-card-title>
+          <mat-card-subtitle>Author: {{bookmark.user.username}}</mat-card-subtitle>
+        </mat-card-header>
+
+        <mat-card-content>
+          <p>{{bookmark.post.text}}</p>
+          <p>{{bookmark.post.date | date:'dd-MM-yyyy (hh:mm a)'}}</p>
+        </mat-card-content>
+
+        <mat-card-actions>
+          <button mat-flat-button color="primary" (click)="deleteBookmark(bookmark.id)">DELETE TO BOOKMARKS</button>
+        </mat-card-actions>
+      </mat-card>
+
+    </div>
+
+  </div>
+
+</div>

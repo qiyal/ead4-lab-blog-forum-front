@@ -1,0 +1,62 @@
+.example-card {
+  width: 400px;
+  margin: 0 auto;
+}
+
+
+.comments {
+  position: relative;
+  margin: 0 auto 20px;
+  width: 400px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  background: #eeeeee;
+
+  .del-btn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+  }
+
+  .user-info {
+    background: #5a6fea;
+    padding: 10px;
+    box-sizing: border-box;
+
+    .user-name {
+      text-align: center;
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+
+    .user-img {
+      width: 70px;
+      height: 70px;
+
+      img {
+        width: 100%;
+        object-fit: cover;
+        border-radius: 50%;
+      }
+    }
+
+  }
+
+  .comment-text {
+    padding: 10px;
+    box-sizing: border-box;
+    width: 300px;
+  }
+}
+
+.comment-form {
+  width: 400px;
+  margin: 50px auto 0;
+  position: relative;
+
+  .example-full-width {
+    width: 100%;
+    //height: 100px!important;
+  }
+}
