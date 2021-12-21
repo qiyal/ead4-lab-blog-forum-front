@@ -43,4 +43,12 @@ export class SavedService {
   deleteById(savedId: any): Observable<any> {
     return this.http.delete(this.apiPrivate + `/delete/${savedId}`);
   }
+
+  addPost(savedPost: any): Observable<any> {
+    return this.http.post(this.apiPrivate + '/add-post', savedPost);
+  }
+
+  getPosts(savedId: any): Observable<any> {
+    return this.http.get(this.apiPublic + '/getPosts/' + savedId);
+  }
 }

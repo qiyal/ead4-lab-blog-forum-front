@@ -7,6 +7,7 @@ import {User} from '../object/user';
 export class UserService {
   api = '/api/user-api/public';
   apiPublic = '/api/user-api/user/public';
+  apiPrivate = '/api/user-api/user/private';
 
   constructor(
     private http: HttpClient
@@ -17,7 +18,7 @@ export class UserService {
   }
 
   createUser(data: any): Observable<User> {
-    return this.http.post<User>(this.api + '/create', data);
+    return this.http.post<User>(this.apiPublic + '/create', data);
   }
 
   updateUsername(username: string, idUser: number): Observable<any> {

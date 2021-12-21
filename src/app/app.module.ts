@@ -30,6 +30,8 @@ import {MatOptionModule} from '@angular/material/core';
 import {FriendsPageComponent} from './component/friends-page/friends-page.component';
 import { EditSavedComponent } from './component/dialog/edit-saved/edit-saved.component';
 import {MatDialogModule} from '@angular/material/dialog';
+import { AddToSaveComponent } from './component/dialog/add-to-save/add-to-save.component';
+import { SavedPostsListComponent } from './component/dialog/saved-posts-list/saved-posts-list.component';
 
 @NgModule({
   declarations: [
@@ -43,7 +45,9 @@ import {MatDialogModule} from '@angular/material/dialog';
     BookmarksPageComponent,
     MyPostsPageComponent,
     FriendsPageComponent,
-    EditSavedComponent
+    EditSavedComponent,
+    AddToSaveComponent,
+    SavedPostsListComponent
   ],
   imports: [
     BrowserModule,

@@ -32,7 +32,7 @@ const routes: Routes = [
     component: PostDetailsPageComponent
   },
   {
-    path: 'bookmarks',
+    path: 'saved',
     component: BookmarksPageComponent
   },
   {

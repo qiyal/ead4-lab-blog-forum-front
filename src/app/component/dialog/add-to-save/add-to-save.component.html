@@ -1,0 +1,15 @@
+<div class="mat-page-box">
+
+  <h3>Add to Saved</h3>
+
+  <div>
+    <mat-form-field appearance="fill">
+      <mat-label>Choose an saved</mat-label>
+      <mat-select [(value)]="savedId">
+        <mat-option value="{{saved.id}}" *ngFor="let saved of saveds">{{saved.title}}</mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+
+  <button mat-flat-button color="warn" (click)="addTosave()">Save</button>
+</div>

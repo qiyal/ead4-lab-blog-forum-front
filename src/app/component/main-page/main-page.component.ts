@@ -4,6 +4,8 @@ import {PostService} from '../../service/post.service';
 import {BookmarkService} from '../../service/bookmark.service';
 import {AuthService} from '../../service/auth.service';
 import {Post} from '../../object/Post';
+import {MatDialog} from '@angular/material/dialog';
+import {AddToSaveComponent} from '../dialog/add-to-save/add-to-save.component';
 
 @Component({
   selector: 'app-main-page',
@@ -18,7 +20,8 @@ export class MainPageComponent implements OnInit {
     private router: Router,
     private bookmarkService: BookmarkService,
     private postService: PostService,
-    private auth: AuthService
+    private auth: AuthService,
+    public dialog: MatDialog
   ) {
   }
 
@@ -58,6 +61,14 @@ export class MainPageComponent implements OnInit {
   getAllPosts(): void {
     this.postService.getAllPost().subscribe(res => {
       this.allPosts = res;
+    });
+  }
+
+  openAddToSave(_postId: any): void {
+    const dialogRef = this.dialog.open(AddToSaveComponent, {
+      data: {
+        postId: _postId
+      }
     });
   }
 }
